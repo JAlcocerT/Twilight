@@ -27,12 +27,20 @@ English | [**中文**](docs/README_ZH.md)
 
 </div>
 
+Forked from: https://github.com/Spr-Aachen/Twilight with a demo at https://twilight.spr-aachen.com/
 
 ```sh
-make help
+#make help
+pnpm dev --host
 ```
 
-> Go to `localhost:4321` to view your blog and to `/admin` to manage your blog via DecapCMS.
+> Go to `localhost:4321` to view your blog and to `/admin` to manage your blog via [DecapCMS](https://github.com/decaporg/decap-cms).
+
+Configure Decap to work locally via `./public/admin/config.yml`
+
+![alt text](z-snaps/decapcms-local.png)
+
+![alt text](z-snaps/decapcms-admin-ui.png)
 
 ---
 
