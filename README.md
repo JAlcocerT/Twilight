@@ -27,6 +27,13 @@ English | [**中文**](docs/README_ZH.md)
 
 </div>
 
+
+```sh
+make help
+```
+
+> Go to `localhost:4321` to view your blog and to `/admin` to manage your blog via DecapCMS.
+
 ---
 
 ## 📦 Installation
