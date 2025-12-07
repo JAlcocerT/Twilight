@@ -31,8 +31,13 @@ Forked from: https://github.com/Spr-Aachen/Twilight with a demo at https://twili
 
 ```sh
 #make help
-pnpm dev --host
+make dev #pnpm dev --host
 ```
+
+You now need two servers running for **local Decap CMS development**:
+
+1. Astro dev server: `make dev` (port 4321)
+2. Decap CMS proxy server: `npx decap-server` (port 8081)
 
 > Go to `localhost:4321` to view your blog and to `/admin` to manage your blog via [DecapCMS](https://github.com/decaporg/decap-cms).
 
@@ -41,6 +46,20 @@ Configure Decap to work locally via `./public/admin/config.yml`
 ![alt text](z-snaps/decapcms-local.png)
 
 ![alt text](z-snaps/decapcms-admin-ui.png)
+
+Media goes to `public/images` folder
+
+![alt text](z-snaps/decap-media.png)
+
+![alt text](public/images/decap-cms-working-locally.png)
+
+And you can edit via:
+
+![alt text](z-snaps/decap-post-editor.png)
+
+That gets reflected back into the code:
+
+![alt text](z-snaps/decap-post-md-changes.png)
 
 ---
 

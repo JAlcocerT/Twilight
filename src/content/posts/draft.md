@@ -1,13 +1,20 @@
 ---
 title: Draft Example
 published: 2021-12-02
-tags: [Markdown]
+tags:
+  - Markdown
 category: Examples
+date: 2025-12-07T16:16:00.000+01:00
+description: testing decapcms
 draft: true
 ---
-
-
 # This Article is a Draft
+
+**And i can change this from the editor**
+
+
+
+*hola hola*
 
 This article is currently in a draft state and is not published. Therefore, it will not be visible to the general audience. The content is still a work in progress and may require further editing and review.
 
@@ -21,3 +28,4 @@ tags: [Markdown]
 category: Examples
 draft: false
 ---
+```

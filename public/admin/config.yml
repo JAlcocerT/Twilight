@@ -1,7 +1,6 @@
 # Local development configuration
 backend:
-  name: proxy
-  proxy_url: http://localhost:8081/api/v1
+  name: git-gateway
   branch: main
   commit_messages:
     create: "Create {{collection}} '{{slug}}'"
