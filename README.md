@@ -29,9 +29,20 @@ English | [**中文**](docs/README_ZH.md)
 
 Forked from: https://github.com/Spr-Aachen/Twilight with a demo at https://twilight.spr-aachen.com/
 
+**Run the project:**
+
 ```sh
 #make help
 make dev #pnpm dev --host
+npx decap-server #in terminal 2
+```
+
+Or simply **via container**
+
+```sh
+make docker-dev
+#make docker-logs
+#make docker-down
 ```
 
 You now need two servers running for **local Decap CMS development**:
