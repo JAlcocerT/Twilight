@@ -1,11 +1,14 @@
 ---
-title: Encryption Example
-published: 2020-02-02
-description: This is an article for testing the page encryption feature
+title: Encryption Example and it also works via containers
+draft: false
 encrypted: true
+published: 2020-02-02
+date: 2025-12-07T16:58:00.000+01:00
 pinned: false
+tags:
+  - Encryption
 password: "123456"
-tags: [Encryption]
+description: This is an article for testing the page encryption feature
 category: Examples
 ---
 
