@@ -1,4 +1,4 @@
-.PHONY: dev build preview check format lint new-post install clean
+.PHONY: dev build preview check format lint new-post install clean docker-up docker-down docker-build docker-logs docker-dev
 
 # Install dependencies
 install:
@@ -56,3 +56,32 @@ help:
 	@echo "  make new-post   - Create a new blog post (title='Post Title')"
 	@echo "  make clean      - Remove build artifacts and dependencies"
 	@echo "  make setup      - Install dependencies and start dev server"
+	@echo ""
+	@echo "Docker commands:"
+	@echo "  make docker-build - Build Docker images"
+	@echo "  make docker-up    - Start containers (Astro + Decap CMS proxy)"
+	@echo "  make docker-down  - Stop and remove containers"
+	@echo "  make docker-logs  - View container logs"
+	@echo "  make docker-dev   - Build and start containers in one command"
+
+# Docker commands
+docker-build:
+	docker compose build
+
+docker-up:
+	docker compose up -d
+
+docker-down:
+	docker compose down
+
+docker-logs:
+	docker compose logs -f
+
+docker-dev: docker-build docker-up
+	@echo "Containers started! Access:"
+	@echo "  - Blog: http://localhost:4321"
+	@echo "  - Decap CMS Admin: http://localhost:4321/admin"
+	@echo "  - Decap Proxy: http://localhost:8081"
+	@echo ""
+	@echo "Run 'make docker-logs' to view logs"
+	@echo "Run 'make docker-down' to stop containers"

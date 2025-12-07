@@ -1,0 +1,64 @@
+services:
+  # Astro development server
+  astro:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: twilight-astro
+    ports:
+      - "4321:4321"
+    volumes:
+      # Mount source code for hot-reload
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./astro.config.mjs:/app/astro.config.mjs
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./tailwind.config.cjs:/app/tailwind.config.cjs
+      - ./postcss.config.mjs:/app/postcss.config.mjs
+      # Mount .env file for environment variables
+      - ./.env:/app/.env:ro
+      # Preserve node_modules in container
+      - node_modules:/app/node_modules
+    command: pnpm dev --host
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    networks:
+      - twilight-network
+    depends_on:
+      - decap-proxy
+
+  # Decap CMS proxy server
+  decap-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: twilight-decap-proxy
+    ports:
+      - "8081:8081"
+    volumes:
+      # Mount content directories for CMS access
+      - ./src/content:/app/src/content
+      - ./public/images:/app/public/images
+      - ./public/admin:/app/public/admin
+      # Mount git directory for commits
+      - ./.git:/app/.git
+      # Mount .env file for environment variables
+      - ./.env:/app/.env:ro
+      # Preserve node_modules in container
+      - node_modules:/app/node_modules
+    command: npx -y decap-server
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    networks:
+      - twilight-network
+
+networks:
+  twilight-network:
+    driver: bridge
+
+volumes:
+  node_modules:

@@ -61,6 +61,29 @@ That gets reflected back into the code:
 
 ![alt text](z-snaps/decap-post-md-changes.png)
 
+### 🐳 Docker Setup (Alternative)
+
+Instead of running two separate processes, you can use Docker Compose to bundle both services:
+
+```bash
+# Build and start both containers (Astro + Decap CMS proxy)
+make docker-dev
+
+# View logs
+make docker-logs
+
+# Stop containers
+make docker-down
+```
+
+**Benefits of Docker:**
+- ✅ Single command to start both services
+- ✅ No need to install Node.js or pnpm locally
+- ✅ Consistent environment across different machines
+- ✅ Isolated dependencies
+
+📖 **[Read the full Docker documentation](DOCKER.md)** for architecture details and advanced usage.
+
 ---
 
 ## 📦 Installation
